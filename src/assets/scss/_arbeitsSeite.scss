@@ -1,0 +1,626 @@
+@import "./font-poppins";
+@import "./farben";
+
+
+.form-control {
+    font-size: 1.2rem;
+    background: white;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px $grau-300;
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+h1.code-line{
+    text-align: left;
+    padding-bottom: 5px;
+    border-bottom:  2px solid $grau-400;
+    margin-bottom: 20px;
+}
+
+// SCSS-Schleife für margin-bottom von 10px bis 90px
+@for $i from 1 through 9 {
+    .abstand-#{$i * 10} {
+        border-bottom : 2px transparent;
+        margin-bottom: #{10 * $i}px;
+    }
+  }
+
+.bild-drehen90{
+    transform:rotate(90deg);
+}
+
+.bild-drehen270{
+    transform:rotate(270deg);
+}
+
+
+
+/* ---------------------------------------------------
+    Seitenleisten-Stil
+----------------------------------------------------- */
+      /* Inhalt */
+
+
+.arbeitsseite-verpackung{
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    font-family: 'Poppins', sans-serif;
+    color: $grau-800;
+    & #arbeitsseite-inhalt {
+        margin-left: 220px;
+        transition: margin-left 0.3s ease;
+        padding-top: 10px;
+        padding-left: 30px;
+        min-height: 100vh;
+        
+        &.active {
+            width: 100%;
+        }
+        & p, li {
+            line-height: 1.5rem;
+        }
+    }
+}
+
+/* Sidebar (sichtbar) */
+#sidebar {
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #ffffff;
+    color: #333;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 1000;
+  }
+ 
+// Sidebar-Styling
+#sidebar {
+    ul {
+      li {
+        a {
+          color: $text-color;
+          padding: 10px;
+          text-decoration: none;
+          display: block;
+          transition: background-color 0.3s ease, color 0.3s ease;
+  
+          &:hover {
+            background-color: $hover-bg;
+            color: $hover-color;
+            border-radius: 4px;
+          }
+  
+          &.active {
+            background-color: $active-bg;
+            color: $hover-color;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+// Sidebar verstecken bei Toggle
+#sidebarToggle:checked {
+    ~ #sidebar {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  
+    ~ #arbeitsseite-inhalt {
+      margin-left: 0;
+    }
+  
+    ~ #openSidebar {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+/* Öffnen-Button */
+#openSidebar {
+position: fixed;
+top: 15px;
+left: 15px;
+font-size: 1.8rem;
+color: #555;
+background: none;
+border: none;
+cursor: pointer;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+z-index: 1100;
+}
+
+/* Schließen-Button */
+#closeSidebar {
+position: absolute;
+top: 15px;
+right: 15px;
+font-size: 1.2rem;
+color: #555;
+background: none;
+border: none;
+cursor: pointer;
+}
+
+
+
+#topMenu{
+    position: fixed;
+    width:100%;
+    
+    top: 0;
+    left: 0;
+    padding-left: 200px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    background: $grau-100;
+    color: $grau-900;
+
+}
+
+a {
+    &.download {
+        background: #fff;
+        color: #7386D5;
+    }
+
+    &.article, &.article:hover {
+        background: #6d7fcc !important;
+        color: #fff !important;
+    }
+}
+
+/* ---------------------------------------------------
+    Arbeitsseite Stil
+----------------------------------------------------- */
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card.loesungStil { 
+    padding-left: 5px;
+    color: $gruen-800;
+    line-height: 1.5em;
+}
+
+/* Der Hauptinhalt */
+#arbeitsseite-inhalt {
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Nummerierung der Elemente*/
+
+/* START Numerierung der Seitenleiste */
+nav {
+    & ul {
+        counter-reset: sidebar;
+        /* Create a chapter counter scope */
+        list-style-type: none;
+        padding: 0px;
+        margin-left: 0px
+    }
+
+    & li {
+        padding-left: 0px;
+        margin-left: 5px;
+        & a::before {
+            counter-increment: sidebar;
+            /* Add 1 to chapter */
+            content: counters(sidebar, ". ") ". ";
+        }
+    }
+}
+/* ENDE Numerierung der Seitenleiste */
+
+/* START Numerierung des Textflusses, der von E1 eingeschlossen ist */
+h1 {
+    counter-reset: zE2 bilder tabelle; /* Alle Nummenelemente zurücksetzen: zE2 (Zähler der Ebene 2), zBild (Zähler der Bilder ), zTabelle (Zähler der Tabellen)*/
+}
+
+/* Nummerrierung der Ebene 1 (eingeschlossen von Sektion E1) */
+h2::before {                        //Schreibe vor die Überschrift h2
+    content: counter(zE2) " ";
+    counter-increment: zE2;
+}
+
+
+    /* START Nummerierung der Ebene 3 (eingeschlossen von Sektion E2) */
+h2 {
+    counter-reset: zE3 zKapBild zKapTabelle; //Zurücksetzen der Zähler zE3 zKapBild (kapitelspez. Bild-Nr.) zKapTabelle (kapitelspez. Tabellen-Nr)
+}
+
+h3::before {
+    content: counter(zE2) "." counter(zE3) " ";
+    counter-increment: zE3;
+/* ENDE Nummerierung der Ebene 3 (eingeschlossen von Sektion E3) */
+}
+
+/* START Nummerierung der Bilder und Tabellen */
+.bNr {
+    counter-increment: zKapBild;    
+    & figcaption::before {
+        content: 'Bild ' counter(zE2)"."counter(zKapBild) ' - ';
+    }
+
+}
+
+.bildnummer::before {
+    content: "Bild " counter(zE2) "." counter(zKapBild) " - ";
+  }
+
+.tNr {
+    & > figcaption::before {
+        content: 'Tab. ' counter(zE2)"."counter(zKapTabelle) ' - ';
+    }    
+    counter-increment: zKapTabelle;
+
+}
+
+
+
+/*
+figure img{
+    border: 10px !important;
+    width: 50% !important;
+    height: auto;
+}
+*/
+.figure{
+    text-align: center;
+    background-color: transparent !important;
+    //border: 5px solid green !important;
+    //width: 100%; 
+    //height: auto;
+
+    & > figcaption {
+        padding-left: 5px;
+        text-align: left;
+        //font-size: 0.7vw !important;
+    }
+    
+    & > img {
+            //width:100%;
+            //height: auto;
+            //border: $rot-200 1px solid;
+    }
+
+
+    &.bild-10 {
+        & img{
+            width:10%;
+            height: auto;
+        }
+        & figcaption {
+            text-align: left;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+    }
+
+    &.bild-20 {
+        & img{
+            width:20%;
+            height: auto;
+        }
+        & figcaption {
+            text-align: left;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+    }
+
+    &.bild-30 {
+        & img{
+            width:30%;
+            height: auto;
+        }
+        & figcaption {
+            text-align: left;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+    }
+
+    &.bild-40 {
+        & img{
+            width:40%;
+            height: auto;
+        }
+        & figcaption {
+            text-align: left;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+    }
+
+    &.bild-50 {
+        & img{
+            width:50%;
+            height: auto;
+        }
+        & figcaption {
+            text-align: left;
+            margin-left: 25%;
+            margin-right: 25%;
+
+        }
+    }
+
+    &.bild-60 {
+        & img{
+            width:60%;
+            height: auto;
+        }
+
+        & figcaption {
+            text-align: left;
+            margin-left: 20%;
+            margin-right: 20%;
+
+        }
+    }
+    &.bild-70 {
+        & img{
+            width:70%;
+            height: auto;
+        }
+
+        & figcaption {
+            text-align: left;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+    }
+
+    &.bild-80 {
+        & img{
+            width:80%;
+            height: auto;
+        }
+
+        & figcaption {
+            text-align: left;
+            margin-left: 10%;
+            margin-right: 10%;
+
+        }
+    }
+
+    &.bild-90 {
+        & img{
+            width:90%;
+            height: auto;
+        }
+
+        & figcaption {
+            text-align: left;
+            margin-left: 5%;
+            margin-right: 5%;
+
+        }
+    }
+
+    &.bild-100 {
+        & img{
+            width:100%;
+            height: auto;
+        }
+
+        & figcaption {
+            text-align: left;
+        }
+    }
+
+    &.bild-h {
+        & img{
+            width:10%;
+            height: auto;
+        }
+        & figcaption {
+            text-align: left;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+    }
+
+    &.bildNr {
+        counter-increment: bilder;
+
+        & figcaption::before {
+            content: 'Bild ' counter(bilder) ': ';
+        }
+    }
+
+    &.tabellenNr {
+        counter-increment: tabellen;
+        & > figcaption::before {
+            content: 'Tab. ' counter(tabellen) ': ';
+        }    
+    }
+
+} 
+
+.bild {
+    font-weight: bold;
+}
+/* ENDE Nummerierung der Bilder und Tabellen */
+
+/* ENDE Numerierung des Textflusses */
+
+// ---------------------------------------------
+// TEXTAUSRICHTUNG: Absätze und Listen
+// ---------------------------------------------
+
+// Standard-Ausrichtung: linksbündig
+p, li {
+  text-align: left;
+  line-height: 1.5rem;
+}
+
+// Alternative Ausrichtungen per Klasse
+.text-left,  p.l, li.l { text-align: left; }
+.text-center, p.m, li.m { text-align: center; }
+.text-right, p.r, li.r { text-align: right; }
+.text-justify, p.j, li.j { text-align: justify; }
+
+// Optional: Kleinschrift für erklärende Absätze
+p.kleinschrift, li.kleinschrift {
+  font-size: small;
+}
+
+// Listenausrichtung: keine Standardjustierung
+ul, ol, li {
+  text-align: left;
+}
+ 
+// Optional: per Klasse anpassbar
+li.l, ul.l, ol.l        { text-align: left; }
+li.r, ul.r, ol.r        { text-align: right; }
+li.m, ul.m, ol.m        { text-align: center; }
+li.j, ul.j, ol.j        { text-align: justify; }
+li.kleinschrift         { font-size: small; }
+
+ul {
+    
+    &.plus{
+        list-style: none;
+        & li:before {
+            content: '\2795\0020 ';
+        }
+        & li {
+            text-indent: -1.5em;
+            text-align:start;
+        } 
+    }
+    &.minus{
+        list-style: none;
+        & li:before {
+            content: '\2796\0020';
+        }
+        & li {
+            text-indent: -1.5em;
+            text-align:start;
+        }
+    }
+
+}
+
+ol {
+
+    &.grossBu{
+        & li {
+            list-style:upper-latin;
+        } 
+        li::marker  {
+            color: blue ; 
+            font-size:1.2em;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.rahmen-1{
+    border: $grau-500 1px solid;
+}
+
+/* Spalten-Definition */
+
+
+.col-45 {
+    flex: 0 0 auto;
+    width: 37,5%;
+}
+.col-20 {
+    flex: 0 0 auto;
+    width: 20%;
+}
+.eingabe-10
+{ 
+  width: 10%; 
+  box-sizing: border-box;
+  padding: 4px;
+  outline: none;
+
+}
+
+.row.tab{ 
+    height: 3em;
+    margin: 0px;
+    padding: 0px;
+    & > div {
+        border: 1px solid $amber-400;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.b-50{
+    border: 2px solid red;
+    object-fit:contain;
+
+}
+
+[draggable=true] {
+    cursor: move;
+  }
+  [draggable=false] {
+    cursor: not-allowed;
+  }
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #arbeitsseite-inhalt {
+        width: 100%;
+    }
+    #arbeitsseite-inhalt.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+

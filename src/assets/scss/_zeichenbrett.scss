@@ -1,0 +1,75 @@
+    :root {
+        --cursor: url(/bilder/stift_klein.svg) 0 22, auto;
+    }
+
+    .zeichnungsRahmen {
+        border: 2px solid blue;
+    }
+
+    .canRahmen{
+            /*width: 1000px;*/
+            height: 200px;
+            border: 1px solid $grau-500;
+            margin-left:0px;
+            margin-top:10px;
+            resize: vertical;
+            overflow: hidden;
+            background-color: $amber-050;
+            padding: 4px;
+            background-image: var(--hintergrund);
+            background-size: 30px 30px;
+    }
+
+    .canvas {
+        /*box-shadow: -3px 2px 9px 6px black;*/
+        border: 1px solid $grau-300;
+        cursor: var(--cursor) ;
+    }
+
+    .werkzeuge {
+        display: flex;
+       justify-content: left;
+        /*flex-direction: row;*/
+        margin-top: 15px;
+
+    & .farbFeld{
+        height: 20px;
+        width: 20px;
+
+        display: inline-block;
+        cursor: pointer ;
+        box-sizing: border-box;
+        border-radius: 50%;
+        border: 2px solid white;
+        align-self: center;
+        margin: 0 5px;;
+    }
+    & .aktiv {
+        height: 30px;
+        width: 30px;
+    }
+
+    & .button{
+        align-self: center;
+        width: 25px;
+        height: 25px;
+        border: 2px solid black;
+        cursor: pointer;
+        color: white;
+        background: gray;
+        font-weight: bold;
+        margin: 0 5px;
+    }
+}
+    .color-picker{
+        align-self: center;
+        margin: 0 5px;
+        height: 25px;
+        width: 25px
+    }
+
+    .pen-range{
+        align-self: center;
+        margin: 0 15px;
+    }
+

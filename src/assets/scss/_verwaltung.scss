@@ -1,0 +1,210 @@
+    /* Basis-Styles für das Layout */
+  .split-view {
+    display: flex;
+    gap: 20px;
+    align-items: stretch; /* sorgt dafür, dass beide Spalten die gleiche Höhe haben */
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-height: 80px;
+  }
+  
+  .split-view > * {
+    flex: 1; /* sorgt dafür, dass beide Spalten gleich breit sind */
+    min-height: 100px;
+  }
+  
+  .fragenteil-eingabe,
+  .fragenteilLoesung-eingabe {
+    height: 100%;
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .fragenteil-vorschau,
+  .fragenteilLoesung-vorschau {
+    height: 100%;
+    min-height: 100px;
+    overflow: auto !important;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background: #f8f9fa;
+  }
+  
+  /* Sicherstellen, dass MathJax-Container korrekt angezeigt werden */
+  .MathJax_Display {
+    overflow-x: auto;
+    padding: 15px 0 !important;
+  }
+  
+  mjx-container {
+    direction: ltr !important;
+    overflow: visible !important;
+  }
+  
+  /* Styling für den Drag-and-Drop Bereich */
+  .drop-area {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
+    min-height: 40px;
+    padding: 10px;
+  }
+  
+  .dz-message {
+    margin: 0;
+    text-align: center;
+    color: #0087F7;
+  }
+  
+  .bild-item img {
+    max-height: 150px;
+    object-fit: contain;
+  }
+  
+  /* Styling für die Lightbox, falls sie verwendet wird */
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10000;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Sicherstellen, dass die Vorschau-Container sichtbar sind */
+  .fragenteil-vorschau,
+  .fragenteilLoesung-vorschau {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling für die Formulareingaben */
+  .form-label {
+    font-weight: bold;
+  }
+  
+  textarea.form-control {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  
+  
+  /* Styling für Checkboxen */
+  .form-check-input {
+    margin-top: 0.5rem;
+  }
+  
+  .form-check-label {
+    font-size: 0.9rem;
+    font-weight: normal;
+  }
+  
+  /* Styling für das Drag-and-Drop Textfeld */
+  .bild-upload {
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  .bild-upload:focus {
+    outline: none;
+    border-color: #0087F7;
+  }
+  /* Styling für die Lösch-Buttons */
+  button.btn-danger {
+    border-radius: 0%; /* Macht den Button rund */
+    padding: 0.5rem; /* Sorgt dafür, dass der Button ausreichend Platz hat */
+    font-size: 1.5rem; /* Schriftgröße für das "×"-Symbol */
+    width: 40px; /* Feste Breite für den Button */
+    height: 40px; /* Feste Höhe für den Button */
+    line-height: 1; /* Vertikale Ausrichtung des Inhalts */
+    background-color: #dc3545; /* Hintergrundfarbe */
+    color: white; /* Textfarbe */
+    border: none; /* Entfernt den Standard-Rand */
+    cursor: pointer; /* Zeigt den Hand-Cursor an */
+    display: flex;
+    justify-content: center; /* Zentriert das "×"-Symbol */
+    align-items: center; /* Zentriert das "×"-Symbol */
+  }
+  
+  button.btn-danger:hover {
+    background-color: #c82333; /* Hover-Effekt für den Button */
+  }
+  
+  .kopfzeileMenu {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+  }
+
+  .kopfzeile {
+    position: sticky;
+    top: 0;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .kopf-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .kopf-rechts {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Mittiger Titel */
+  .kopf-mitte {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    pointer-events: none; /* verhindert versehentliche Blockierung durch Klicks */
+    font-size: large;
+    font-weight: bold;
+  }
+  

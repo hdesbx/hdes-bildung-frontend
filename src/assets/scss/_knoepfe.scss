@@ -1,0 +1,191 @@
+@import "./farben";
+
+.btn-antwort {
+	//display: inline-block;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	text-align: left !important;
+	text-decoration: none;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	border-radius: 0.25rem;
+	background-color: $grau-100;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .btn-antwort-bild {
+	//display: inline-block;
+	margin-right: 4px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	padding:  0.75rem 0.375rem;
+	font-size: 1rem;
+	border-radius: 0.25rem;
+	background-color: $grau-100;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+.btn-antwort-initial {
+	color: $blau-900 ;
+	border-color: $blau-900 ;
+	box-shadow: 0 0 0 0 ;
+	&:active,
+	&.active,
+	&:active:focus,
+	&.active:focus
+	{
+		color: white 	;
+		background-color: $blau-800 ;
+		
+	}
+	&:hover
+	 {
+		border-style: 8px ;
+		background-color: transparent;
+		box-shadow: 0 0 5px $blau-400  ;
+	}
+
+	&:disabled,
+	&.disabled {
+		color: #0d6efd;
+		background-color: $grau-100;
+		box-shadow: 0 0 0 0 ;
+		cursor:initial !important;
+
+	}
+	&.active:disabled,
+	&:active:disabled,
+	&.active.disabled {
+		color: $white ;
+		background-color: $blau-500 ;
+		box-shadow: 0 0 0 0;
+	}
+}
+
+.btn-antwort-richtig {
+	border-color: $gruen-900 ;
+	background-color: $gruen-700 ;	
+	box-shadow: 0 0 0 0;
+	color: white;
+	cursor: initial !important;
+	}
+
+.btn-antwort-falsch {
+	border-color: $rot-900 ;
+	background-color: $rot-700 ;	
+	box-shadow: 0 0 0 0;
+	color: white;
+	cursor: initial !important;
+	}
+
+.zuoEl {
+	margin: 2px;
+	border: $grau-500 1px solid;
+
+	&.zuo-richtig {
+		border-color: 1px solid $gruen-900 ;
+		background-color: $gruen-100 ;	
+	}
+	&.zuo-falsch {
+		border-color: 1px solid $rot-900 ;
+		background-color: $rot-100 ;	
+	}
+	&.zuo-ziehen {
+		border-color: 1px solid $blaugrau-900 ;
+		background-color: $blaugrau-100 ;	
+	}
+}
+
+
+
+.swBenLoe.form-switch{ //Eigenschaften des gesamten Schalterkästchen (Rahmen)
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	& .form-check-input {  //Platzieren der Checkbox und Festlegung deren Eigenschaften
+		width: 2em;
+		height: 1em;
+		margin-top: 0.25em;
+		margin-left: 0em;
+		vertical-align: top;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		background-color: $amber-100;  //Hintergrund in der Checkbox
+		border: 2px solid rgba(0, 0, 0, 0.25);
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		-webkit-print-color-adjust: exact;
+		color-adjust: exact;
+		background-image: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><rect width='6' height='6' x='1' y='1' rx='1' fill='gray' /></svg>"); ;
+		background-position: left center; //Schalterstellung aus
+		//border-radius: 0.5em;
+		transition: background-position 0.15s ease-in-out;
+
+		&[type=checkbox] {
+			border-radius: 0.15em;
+			&:indeterminate {
+				background-color: transparent;// #0d6efd;
+				border-color:  red;// #0d6efd;
+				background-image: "";//url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>");
+			}
+		}
+
+		&:focus {
+			background-image: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><rect width='6' height='6' x='1' y='1' rx='1' fill='gray'/></svg>");
+			//border-color: #86b7fe;
+			outline: 0;
+			box-shadow: none; // 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+			background-color: $blaugrau-100; // ; //#0d6efd;
+		}
+
+		&:checked {  // Eigenschaft bei ausgewähltem Schalter 
+			background-position: right center; //Schalter an
+			background-image: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><rect width='6' height='6' x='1' y='1' rx='1' fill='gray'/></svg>");
+			background-color: $blaugrau-100;  //#0d6efd;
+			//border-color: rgba(0, 0, 0, 0.25); //#0d6efd;
+		
+		}
+
+		&:active {
+			filter: brightness(90%);
+		}
+
+		&:disabled {
+			pointer-events: none;
+			filter: none;
+			opacity: 0.5;
+		}
+
+		&[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
+			opacity: 0.5;
+		}
+	}
+} 
+
+
+
+textarea {
+	&.groesseXY{
+		resize: both;
+	}
+	&.aw{
+		margin-bottom: 10px;;
+	}
+}

@@ -1,0 +1,171 @@
+//Basis-Farben
+$blue:    #0d6efd;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #198754;
+$teal:    #20c997;
+$cyan:    #0dcaf0;
+
+//Amber-Stile
+$amber-050: #FFF8E1;
+$amber-100: #FFECB3;
+$amber-200: #FFE082;
+$amber-300: #FFD54F;
+$amber-400: #FFCA28;
+$amber-500: #FFC107;
+$amber-600: #FFB300;
+$amber-700: #FFA000;
+$amber-800: #FF8F00;
+$amber-900: #FF6F00;
+
+//Rot-Stile
+$rot-050: #FFEBEE;
+$rot-100: #FFCDD2;
+$rot-200: #EF9A9A;
+$rot-300: #E57373;
+$rot-400: #EF5350;
+$rot-500: #F44336;
+$rot-600: #E53935;
+$rot-700: #D32F2F;
+$rot-800: #C62828;
+$rot-900: #B71C1C;
+
+.hg-rot-200 {
+    background-color: $rot-200;
+}
+
+//Blau
+$blau-050: #E3F2FD;
+$blau-100: #BBDEFB;
+$blau-200: #90CAF9;
+$blau-300: #64B5F6;
+$blau-400: #42A5F5;
+$blau-500: #2196F3;
+$blau-600: #1E88E5;
+$blau-700: #1976D2;
+$blau-800: #1565C0;
+$blau-900: #0D47A1;
+
+//Graustile
+$white:    #fff;
+$grau-100: #f8f9fa;
+$grau-200: #e9ecef;
+$grau-300: #dee2e6;
+$grau-400: #ced4da;
+$grau-500: #adb5bd;
+$grau-600: #6c757d;
+$grau-700: #495057;
+$grau-800: #343a40;
+$grau-900: #212529;
+$black:    #000;
+
+//Blaugrau-Stile
+$blaugrau-050: #ECEFF1;
+$blaugrau-100: #CFD8DC;
+$blaugrau-200: #B0BEC5;
+$blaugrau-300: #90A4AE;
+$blaugrau-400: #78909C;
+$blaugrau-500: #607D8B;
+$blaugrau-600: #546E7A;
+$blaugrau-700: #455A64;
+$blaugrau-800: #37474F;
+$blaugrau-900: #2632;
+
+//Gruen
+$gruen-050: #E8F5E9;
+$gruen-100: #C8E6C9;
+$gruen-200: #A5D6A7;
+$gruen-300: #81C784;
+$gruen-400: #66BB6A;
+$gruen-500: #4CAF50;
+$gruen-600: #43A047;
+$gruen-700: #388E3C;
+$gruen-800: #2E7D32;
+$gruen-900: #1B5E20;
+
+.hg-gruen-200 {
+    background-color: $gruen-200;
+}
+
+//Braun
+$braun-050: #EFEBE9;
+$braun-100: #D7CCC8;
+$braun-200: #BCAAA4;
+$braun-300: #A1887F;
+$braun-400: #8D6E63;
+$braun-500: #795548;
+$braun-600: #6D4C41;
+$braun-700: #5D4037;
+$braun-800: #4E342E;
+$braun-900: #3E2723;
+
+//Namens-Stile
+$primary:       $blue;
+$secondary:     $grau-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $grau-100;
+$dark:          $grau-900;
+
+//Register-Farben
+$reg-co-bg-leer: $amber-050;
+$reg-co-fo-leer: $braun-700;
+$reg-co-bo-leer: $amber-400;
+
+$reg-co-bg-voll: $amber-200;
+$reg-co-fo-voll: $braun-700;
+$reg-co-bo-voll: $amber-600;
+
+$reg-co-bg-niabw: $blau-050;
+$reg-co-fo-niabw: $blau-900;
+$reg-co-bo-niabw: $blau-400;
+
+$reg-co-bg-niabwvoll:   $blau-200;
+$reg-co-fo-niabwvoll:   $blau-900;
+$reg-co-bo-niabwvoll:   $blau-600;
+
+$reg-co-bg-richtig: $gruen-100;
+$reg-co-fo-richtig: $gruen-900;
+$reg-co-bo-richtig: $gruen-400;
+
+$reg-co-bg-riniab:  $gruen-200;
+$reg-co-fo-riniab:  $gruen-900;
+$reg-co-bo-riniab:  $gruen-600;
+
+$reg-co-bg-falsch:  $rot-100;
+$reg-co-fo-falsch:  $braun-900;
+$reg-co-bo-falsch:  $rot-400;
+
+$reg-co-bg-faniab:  $rot-200;
+$reg-co-fo-faniab:  $braun-900;
+$reg-co-bo-faniab:  $rot-600;
+
+//----- Farben für die Seitenleiste der Skripte
+$hover-bg: #47748b;
+$hover-color: white;
+$active-bg: #003d19;
+$text-color: #333;
+$button-color: #555;
+
+// =========================================
+// Utility-Klassen generieren
+// =========================================
+@each $name, $color in $amber {
+  .hbg-amber-#{$name} { background-color: $color !important; }
+  .htext-amber-#{$name} { color: $color !important; }
+  .hborder-amber-#{$name} { border-color: $color !important; }
+}
+
+// Anwenden auf alle Paletten
+@include gen-classes($amber, "amber");
+@include gen-classes($rot, "rot");
+@include gen-classes($blau, "blau");
+@include gen-classes($gruen, "gruen");
+@include gen-classes($braun, "braun");
+@include gen-classes($grau, "grau"); 

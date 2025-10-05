@@ -1,0 +1,114 @@
+@import "./farben";
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+}
+
+.nav-link {
+  margin: 1px;
+  &:hover{
+    background-color: $grau-200 !important;
+    border-color:     $grau-400 !important;
+  };
+  &:focus, &.active{
+    border-width: 4px !important;
+    font-weight: bold !important;
+  }
+  
+}
+
+.nav-tabs .nav-link {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  margin-bottom: -2px
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: blue;
+  background-color: #00dbfd;
+} 
+
+.TabFrAfg {
+  background-color:   $gruen-050  !important;
+  color:              $gruen-700  !important;
+  border-color:       $gruen-900  !important;
+}
+
+.TabZng {
+  background-color:   $blaugrau-050  !important;
+  color:              $blau-700  !important;
+  border-color:       $blau-900  !important;
+}
+
+.TabLeer {
+  background-color:   $reg-co-bg-leer  !important;
+  color:              $reg-co-fo-leer  !important;
+  border-color:       $reg-co-bo-leer  !important;
+}
+
+
+.TabVoll {
+  background-color:     $reg-co-bg-voll   !important;
+  color:                $reg-co-fo-voll   !important;
+  border-color:         $reg-co-bo-voll   !important;
+}
+
+.TabLeerNiAbw {
+  background-color:   $reg-co-bg-niabw !important;
+  color:              $reg-co-fo-niabw;
+  border-color:       $reg-co-bo-niabw   !important;
+
+}
+
+.TabVollNiAbw {
+  background-color:   $reg-co-bg-niabwvoll !important;
+  color:              $reg-co-fo-niabwvoll;
+  border-color:       $reg-co-bo-niabwvoll   !important;
+
+}
+
+.TabRichtig {
+  background-color:   $reg-co-bg-richtig !important;
+  color:              $reg-co-fo-richtig;
+  border-color:       $reg-co-bo-richtig   !important;
+
+}
+
+.TabRichtigNiAbw {
+  background-color:   $reg-co-bg-riniab !important;
+  color:              $reg-co-fo-riniab;
+  border-color:       $reg-co-bo-riniab   !important;
+
+}
+
+.TabFalsch {
+  background-color:   $reg-co-bg-falsch !important;
+  color:              $reg-co-fo-falsch;
+  border-color:       $reg-co-bo-falsch   !important;
+
+}
+
+.TabFalschNiAbw {
+  background-color:   $reg-co-bg-faniab !important;
+  color:              $reg-co-fo-faniab;
+  border-color:       $reg-co-bo-faniab   !important;
+
+}
+
+.KleineSchrift {
+  font-size: 80%;
+}
+
+.font-50 {
+  font-size: 50%;
+}
+
+.font-75 {
+  font-size: 75%;
+}

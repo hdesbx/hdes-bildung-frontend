@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+  "dev": "cross-env SASS_SILENCE_DEPRECATIONS=all vite",
+  "build": "cross-env SASS_SILENCE_DEPRECATIONS=all vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "cross-env": "^10.1.0",
+    "sass": "^1.93.2",
+    "vite": "^7.1.7"
+  }
+}

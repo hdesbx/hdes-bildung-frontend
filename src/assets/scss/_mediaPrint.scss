@@ -1,0 +1,74 @@
+@media screen {
+    .behaelter {
+        width: 100%;
+        padding-right: var(--bs-gutter-x, 0.75rem);
+        padding-left: var(--bs-gutter-x, 0.75rem);
+        margin-right: auto;
+        margin-left: auto;  
+    }  
+    .druckKopfzeile {
+        display: none;
+    }
+}
+
+
+@media print {
+    .nichtdrucken {
+        display: none;
+    }
+
+    .admonition {
+        break-inside: avoid;
+        font-size: 0.7rem !important;
+        line-height: 120% !important;
+    }
+
+    ol > li {
+        font-size: 0.7rem !important;
+        line-height: 120% !important;
+    }
+    ul > li {
+        font-size: 0.7rem !important;
+        line-height: 120% !important;
+    }
+    
+    figcaption
+    {
+      font-size: 0.6rem !important;
+      line-height: 110% !important;
+    }
+
+    .arbeitsseite-druck {
+        width: 100% !important;
+    } 
+
+    .druckKopfzeile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px; /* Höhe der Kopfzeile */
+        background: #ddd; /* Hintergrundfarbe */
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 10px 0;
+        border-bottom: 2px solid #000;
+    }
+
+    .arbeitsseite-verpackung {
+        color: green  
+    }
+}
+
+@page {
+    size: A4 portrait;
+    margin-top: 70mm; 
+    margin-right: 15mm; 
+    margin-left: 20mm; 
+    margin-bottom: 20mm;
+
+}
+
+
+

@@ -1,0 +1,88 @@
+/*
+ * DataTables framework
+ */
+table.datenTabelle{
+    border: thin solid $grau-500;
+	& tbody tr:hover{
+        background-color: $amber-200;
+        cursor: pointer;
+    }
+    & thead tr:hover{
+        cursor: initial;
+    }
+    &.farbeSchueler {
+		background-color: $amber-050;
+	};
+	&.farbeSubTable {
+		background-color:$grau-100;
+	};
+	&.farbeTabelleKl {
+		background-color: $amber-100;
+	}
+	&.farbeSubTabelleKl {
+		background-color: $amber-100;
+	};
+	&.farbeCncTabelle {
+		background-color: white;
+	};
+	&.farbeTabelleAfg {
+		background-color: $blaugrau-050;
+	};
+	&.farbeSubTabelleAfg {
+		background-color: $blaugrau-050;
+	};
+	&.farbeSubSubTabelleAfg {
+		background-color: $gruen-050;
+	};
+	&.farbeTabelleBen {
+		background-color: $grau-200;
+	};
+	&.farbeSubTabelleBen {
+		background-color: $grau-100;
+	};
+	&.farbeSubSubTabelleBen {
+		background-color: $grau-100;
+	};
+	&.farbeZusammenstellung {
+		background-color: $rot-050;
+	};
+}
+
+div {
+
+    &.dataTables_wrapper {
+        background-color: #fff;
+    }
+
+    &.dataTables_length {
+        float: left;
+    }
+
+    &.dataTables_filter {
+        float: right;
+    }
+
+    &.dataTables_info {
+        padding: 9px 6px 6px 6px;
+        float: left;
+    }
+
+    &.dataTables_paginate {
+        float: right;
+    }
+
+    &.dataTables_length,
+    &.dataTables_filter,
+    &.dataTables_paginate {
+        padding: 6px;
+    }
+}
+/* Self clearing - http://www.webtoolkit.info/css-clearfix.html */
+.dataTables_wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}

@@ -1,0 +1,111 @@
+@import  "./_farben";
+
+$note-color: $blaugrau-500;
+$info-color: $info;
+$caution-color: $warning;
+$herunterladen-color: $rot-800;
+ 
+
+
+.admonition {
+	padding: 15px 15px 5px 15px;
+	margin-bottom: 21px;
+	border-left: 10px solid transparent;
+	border-top: 4px solid transparent;
+	&.adm-200{
+		width:200px;
+	}
+	&.adm-300{
+		width:300px;
+	}
+  	&.note {
+		border-bottom: 2px solid transparent;
+		border-color: $note-color;
+		background-color: transparent;	
+		& >	.admonition-title:before {
+			font-family: "Font Awesome 5 Free";
+			content: "\f303";
+			color: $note-color;
+			margin-right: 10px;
+		}
+	}
+	
+	&.info {
+		border-bottom: 2px solid transparent;
+		border-color: $info-color;
+		background-color: transparent;
+		& >	.admonition-title:before {
+			font-family: "Font Awesome 5 Free";
+			content: "\129";
+			color: $info-color;
+			margin-right: 10px;
+		}
+  	}
+
+	&.caution {
+		border-bottom: 2px solid transparent;
+		border-color: $caution-color;
+		background-color: transparent;
+		& >	.admonition-title:before {
+			font-family: "Font Awesome 5 Free";
+			content: "\f12a";
+			color: $caution-color;
+			margin-right: 10px;
+		}
+  	}
+	  &.edit { 
+		border-bottom: 2px solid transparent;
+		border-color: $caution-color;
+		background-color: transparent;
+
+  	}
+	  &.herunterladen {
+		border-bottom: 2px solid transparent;
+		border-color: $herunterladen-color;
+		background-color: transparent;	
+		& >	.admonition-title:before {
+			font-family: "Font Awesome 5 Free";
+			content: "\f303";
+			color: $note-color;
+			margin-right: 10px;
+		}
+	}
+
+}
+
+.admonition-inhalt{
+
+	&.h-50 {
+		height: 50px;
+	}
+	&.h-60 {
+		height: 60px;
+	}
+	&.hh-70 {
+		height: 70px;
+	}
+	&.hh-80 {
+		height: 80px;
+	}
+	&.hh-100 {
+		height: 100px;
+	}
+	&.hh-200 {
+		height: 200px;
+	}
+}
+
+.admonition-title {
+	margin-bottom: 5px;
+	padding-left: 3px;
+	border: 1px solid;
+	border-style: hidden hidden solid;
+	font-weight: bold;
+	color: $grau-600;
+	
+}
+
+
+
+
+

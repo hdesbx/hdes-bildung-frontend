@@ -1,0 +1,986 @@
+@import "./farben";
+
+
+
+table {  //Alle tabellen
+	$spalten: 10;
+	& thead { 				//Ausrichten der Kopf-Spalten
+		&.r-0 th{			//Sammelausrichtung aller Kopfzellen
+			text-align:right;
+		}
+		&.z-0 th{
+			text-align:center;
+		}
+		&.l-0 th{
+			text-align:left;
+		}
+							//Einzel-Ausrichtung der Spalten kann im Kopf festgelegt werden. $spalten entspricht der Anzahl der Spalten.
+							//Soll nicht mit der Sammelausrichtung kombiniert werden.
+							//Beispiel: 2. Spalte zentrieren => Klasse = z-2
+		
+		@for $i from 1 through $spalten {
+			&.r-#{$i} th:nth-child(#{$i}){
+				text-align: right;
+			}
+			&.z-#{$i} th:nth-child(#{$i}){
+				text-align: center;
+			}
+			&.l-#{$i} th:nth-child(#{$i}){
+				text-align: left;
+			}
+		}
+	}
+
+	& tbody{				//Ausrichten der Körper-Spalten
+		&.r-0 td{			//Sammelausrichtung aller Körperzellen
+			text-align:right;
+		}
+		&.z-0 td{
+			text-align:center;
+		}
+		&.l-0 td{
+			text-align:left;
+		}
+							//Einzel-Ausrichtung der Spalten kann im Körper festgelegt werden. $spalten entspricht der Anzahl der Spalten.
+							//Soll nicht mit der Sammelausrichtung kombiniert werden.
+							//Beispiel: 3. Spalte rechts ausrichten => Klasse = r-3
+		@for $i from 1 through $spalten {
+			&.r-#{$i} td:nth-child(#{$i}){
+				text-align: right;
+			}
+			&.z-#{$i} td:nth-child(#{$i}){
+				text-align: center;
+			}
+			&.l-#{$i} td:nth-child(#{$i}){
+				text-align: left;
+			}
+		}
+	}
+	& tr{
+		height: 40px;
+		border:thin solid $blaugrau-600;
+		& input{
+			margin: 0px;
+		};
+
+		&.shown td.details-control_E1 {
+			background: url("http://hdesbx.de/images/details_close.png") no-repeat center center;
+
+		}
+		&.shown td.details-control_E2 {
+			background: url("http://hdesbx.de/images/details_close.png") no-repeat center center;
+	
+		}
+		@for $i from 1 through $spalten { //Ausrichten der Körperzellen einer Reihe
+			&.r-#{$i} td:nth-child(#{$i}){
+				text-align: right;
+			}
+			&.z-#{$i} td:nth-child(#{$i}){
+				text-align: center;
+			}
+			&.l-#{$i} td:nth-child(#{$i}){
+				text-align: left;
+			}
+		}
+	}
+	& th {	//Alle Kopfzellen
+		//background-color: $amber-200;
+		cursor: initial;
+	}
+	& td {  //Alle Körperzellen
+		&.details-control_E1 { //details-control 1. Ebene
+			background: url("http://hdesbx.de/images/details_open.png") no-repeat center center;
+			cursor: pointer;
+		}
+		&.details-control_E2 { //details-control 2. Ebene
+			background: url("http://hdesbx.de/images/details_open.png") no-repeat center center;
+			cursor: pointer;
+		}
+	}
+	& th, td{ //Breitenklassen und Ausrichtungsklassen erzeugen, die auf alle Kopf- und Körperzellen angewendet werden können.
+		$a: 1; $m: 10; $e: 40;			// Es gibt 40 Spaltenbreiten in 10er Schritten, also 10 - 400
+		@for $a from 1 through $e {
+			&.ts-breite-#{$a * $m} {
+				width:#{$a * $m}px;
+			}
+		}
+		// spezielle Ausrichtung einer Kopf- oder Körperzelle. Überschreibt die Def. aus dem "head" bzw. "body"
+		&.links{ 
+			text-align: left !important;
+		}
+		&.rechts{
+			text-align: right !important;
+		}
+		&.zentriert{
+			text-align: center !important;
+		}
+	}
+
+
+	// START spezielles Tabellen-Layout
+	&.as-aufgabe{ //Für Aufgaben-Tabellen auf den Webseiten - Variante 1 in amber
+		margin-bottom: 10px;
+		margin-left: 0em;
+		background-color: $amber-050;
+		table-layout: fixed;
+		word-wrap: break-word;
+		width: 100%;
+		&, th, td{
+			border-collapse: collapse;
+			padding: .3em .5em; 
+		}
+		& thead{
+			background-color: $amber-200;
+		};
+		& tbody tr:hover {
+			background-color: $gruen-100;
+			cursor: pointer;
+		};
+		& td {
+			background-image: linear-gradient($amber-050, $amber-100);
+			border-left: thin solid $amber-700;
+			border-right: thin solid $amber-700;
+			vertical-align: bottom;
+
+			&.loesung{
+				color: $rot-900;
+			}
+
+		}
+		& th, caption {
+			background-image: linear-gradient($amber-100, $amber-200);
+			border: thin solid $amber-700;
+		}
+		& caption {
+			caption-side: top;
+			font-size: 1.0em;
+			border-radius: .5em .5em 0 0;
+			padding: 0.5em 0 0.5em 0;
+			text-align: center;
+		}
+	 }
+
+	 &.as-aufgabe2{ //Für Aufgaben-Tabellen auf den Webseiten - Variante 2 in blaugrau
+		margin-left: 0em;
+		table-layout: fixed;
+		word-wrap: break-word;
+		width: 100%;
+		&, th, td{
+			border-collapse: collapse;
+			padding: .3em .5em; 
+		}
+		& thead{
+			& tr:hover {
+				cursor: initial;
+			};
+		};
+		
+		& tbody tr:hover {
+			background-color: $rot-700;
+			cursor: initial;
+		};
+		
+		& td {
+			background-image: linear-gradient($blaugrau-050, $blaugrau-100);
+			border-left: thin solid $blaugrau-700;
+			border-right: thin solid $blaugrau-700;
+			vertical-align: bottom;
+
+			&.loesung{
+				color: $rot-900;
+			}
+
+		}
+		& tfoot {
+			border-bottom: thin solid #666;
+		}
+		& th, caption {
+			
+			background-image: linear-gradient($blaugrau-100, $blaugrau-200);
+			border: thin solid $blaugrau-700;
+		}
+		& caption {
+			caption-side: top;
+			font-size: 1.0em;
+			border-radius: .5em .5em 0 0;
+			padding: 0.5em 0 0.5em 0;
+			text-align: center;
+		}
+	 }
+
+	 &.as-tabelle3{ //Für Aufgaben-Tabellen auf den Webseiten - Variante 3 in blaugrau
+		margin-left: 0em;
+		table-layout: fixed;
+		word-wrap: break-word;
+		width: 100%;
+		font-size: 0.8em;
+		&, th, td{
+			border-collapse: collapse;
+			padding: .3em .5em; 
+		}
+		& thead{
+			& tr:hover {
+				cursor: initial;
+			};
+		};
+		
+		& tbody tr:hover {
+			background-color: $rot-700;
+			cursor: initial;
+		};
+		& tr {
+			height: 20px;
+		}
+		& td {
+			background-image: linear-gradient($blaugrau-050, $blaugrau-100);
+			border-left: thin solid $blaugrau-700;
+			border-right: thin solid $blaugrau-700;
+			vertical-align: bottom;
+
+			&.loesung{
+				color: $rot-900;
+			}
+
+		}
+		& tfoot {
+			border-bottom: thin solid #666;
+		}
+		& th, caption {
+			
+			background-image: linear-gradient($blaugrau-100, $blaugrau-200);
+			border: thin solid $blaugrau-700;
+		}
+		& caption {
+			caption-side: top;
+			font-size: 1.0em;
+			border-radius: .5em .5em 0 0;
+			padding: 0.5em 0 0.5em 0;
+			text-align: center;
+		}
+	 }
+
+	 &.pretty{
+		width: 100%;
+		clear: both;
+		& td, th{
+			padding: 5px;
+			border: 1px solid red;
+		}
+		& tbody th {
+			text-align: left;
+			background: #fff;
+		}
+		
+		& tbody td {
+			text-align: center;
+			background: #d5eaf0;
+		}
+		& tfoot th {
+			background: #b0cc7f;
+			text-align: left;
+		}
+			
+		& tfoot td {
+			background: #d7e1c5;
+			text-align: center;
+			font-weight: bold;
+		}
+		
+		/* Sorting*/
+		& thead th.sorting_asc {
+			background: #66A9BD url('images/sort_asc.png') no-repeat right center;
+		}
+
+		& thead th.sorting_desc {
+			background: #66A9BD url('images/sort_desc.png') no-repeat right center;
+		}
+		& thead th.sorting {
+			background: #66A9BD url('images/sort_both.png') no-repeat right center;
+		}
+	}
+
+	//cursor: pointer !important;
+
+	// ENDE spezielles Tabellen-Layout
+
+}
+
+//START Scroll-Tabelle
+/* Definition der Höhe und Breite des scrollbaren Bereiches. Addiere 16px zur Breite für die Scrollbar          */
+$tabSpaltenAnzahl: 18;
+$tabZellenBreite: 80;
+$tabZelle_1_Breite: 50;
+$tabBreite: $tabSpaltenAnzahl * $tabZellenBreite - $tabZelle_1_Breite + 40;
+$tabKoerperHoehe: 500;
+
+div.tableContainer{
+	margin-left:10px;
+	padding:10px;
+	clear: both;
+	//border: thin solid #963;
+	//overflow: auto;
+	width: #{$tabBreite + 16}px; //Breite incl. Scrollbar
+	& table {
+		width: #{$tabBreite}px; //Breite der Tabelle
+	}
+
+
+	& table.scrollTable{
+		outline:brown solid thin;
+		& thead.fixedHeader {
+			display: block;
+			overflow-y: scroll;
+			background-image: linear-gradient($blaugrau-050, $blaugrau-100);
+			& th {width: #{$tabZellenBreite}px;} //alle Zellen vorerst auf "tabZellenBreite" setzen
+			& tr:first-child {	//Bestimmte Zellenbreiten anpassen
+				
+				& th{border: $grau-400 solid thin;};
+				& th:first-child	{width: #{$tabZelle_1_Breite}px;}
+				& th:nth-child(2)	{width: #{$tabZellenBreite * 2}px;}
+				& th:nth-child(3)	{width: #{$tabZellenBreite*3}px;}
+				& th:nth-child(4)	{width: #{$tabZellenBreite * ($tabSpaltenAnzahl - 7)}px;}
+			}
+			& tr:nth-child(2) {
+				& th	{border: $grau-400 solid thin;}
+			}
+		}
+		& thead.fixedHeader::-webkit-scrollbar { //macht die Scrollbar im Kopf transparent, um den Kopf zu kürzen
+			background-color: lightgray;
+		}	
+
+		& tbody {
+			font-size: 0.8em !important;
+			&.scrollContent { //Tabellen-Körper
+				display: block;
+				height: #{$tabKoerperHoehe}px;
+				overflow-y: scroll; //Ständig sichtbare Scrollbar
+				width:100%;
+				
+				& tr{
+					background-image: linear-gradient($blaugrau-050, $blaugrau-100);
+					& td {width: #{$tabZellenBreite}px !important; border: $grau-400 solid thin; padding:0px; margin:0px}
+					& td:first-child{width: #{$tabZelle_1_Breite}px !important; } // Erstes element überschreibt die Breite 100px
+					& td:last-child{width: #{$tabZellenBreite}px !important; } // Erstes element überschreibt die Breite 100px
+
+					}
+				}
+			}
+	}
+}
+//Ende Scroll-tabelle
+
+.cncAtnwort {
+	background-color: rgb(220, 220, 220);
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.cncAtnwortRichtig {
+	background-color: rgb(0, 161, 0);
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+}
+
+.cncAtnwortFalsch {
+	background-color: red;
+	color: white;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.clEingabe {
+	background-color: rgb(231, 231, 231);
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.clVorgabe {
+	background-color: rgb(204, 204, 204);
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.cncApEingabe {
+	background-color: rgb(231, 231, 231);
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.cncApVorgabe {
+	background-color: rgb(204, 204, 204);
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.cncApAg {
+	background-color: rgb(247, 232, 230);
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.cncApFo {
+	background-color: rgb(200, 225, 245);
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.cncApWzg {
+	background-color: rgb(218, 245, 200);
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.afgApFalsch {
+	background-color: rgb(247, 232, 230);
+	padding: 1;
+	margin: 0;
+	text-align: left;
+}
+
+.zuoFalsch {
+	background-color: red;
+	color: white;
+}
+
+.zuoRichtig {
+	background-color: rgb(0, 161, 0);
+	color: white;
+}
+
+
+
+
+.inpLoesung {
+	color: $gruen-700;
+	font-weight: bolder;
+	width:100%;
+	flex: 1 1 auto;
+}
+
+// Tabellenformat für GRID
+.tabellenAufgabe{
+	background-color: $amber-100;
+	& .kopf{
+		font-weight: bolder;
+		background-color: $amber-200;
+		& .row {
+			height: 3em;
+			margin: 0px ;
+			padding: 0px ;
+			& > div{
+				border: 1px solid $amber-500;
+				display: flex;
+				align-items: center;
+			}
+		}
+	};
+
+	& .koerper{
+		& .row{ 
+			height: 3em;
+			margin: 0px;
+			padding: 0px;
+			
+			& > div {
+				border: 1px solid $amber-400;
+				//display: flex;
+				align-items: center;
+			}
+			&:hover{
+				background-color: $gruen-100;
+			}
+			& .col-3{
+				padding-top: 10px;
+				background-color: #66A9BD
+			}
+
+		};		
+
+	};
+};
+	
+
+
+.tabellenSeiten{
+	&.schrift-klein {
+		font-size: smaller;
+	}
+	
+	&.amber {	
+		border: 1px solid $amber-500;
+		& .row [class*="col"] {
+			border-left: 1px solid $amber-500;
+			border-right: 1px solid $amber-500;
+
+		}
+		& .kopf {
+			background-image: linear-gradient($amber-100, $amber-300) ;
+		}
+		& .koerper {
+			& [class*="col"]{
+				background-image: linear-gradient($amber-050, $amber-100);
+			}
+		}
+	}
+	&.blaugrau {
+		border: 1px solid $blaugrau-500;
+		& .row [class*="col"]{
+			border-left: 1px solid $blaugrau-500;
+			border-right: 1px solid $blaugrau-500;
+		}
+		& .kopf {
+			background-image: linear-gradient($blaugrau-100, $blaugrau-200) ;
+		}
+		& .koerper{
+			& [class*="col"]{
+				background-image: linear-gradient( $blaugrau-050, $blaugrau-100);
+			}
+		}
+	}
+	&.rot {
+		border: 1px solid $rot-500;
+		& .row [class*="col"]{
+			border-left: 1px solid $rot-500;
+			border-right: 1px solid $rot-500;
+		}
+		& .kopf {
+			background-image: linear-gradient($rot-100, $rot-300) ;
+		}
+		& .koerper {
+			& [class*="col"]{
+				background-image: linear-gradient($rot-050, $rot-100);
+			}
+		}
+	}
+
+	& .kopf{
+		font-weight: bolder;
+		
+		&.ausrichtung-l  [class*="col"]{
+			display: flex !important;
+			justify-content: left !important;
+		}
+		&.ausrichtung-c [class*="col"]{ 
+			display: flex !important;
+			justify-content: center !important;
+		}
+		&.ausrichtung-r [class*="col"]{
+			display: flex !important;
+			justify-content: end !important;		}
+
+		& .row {
+			height: 3em;
+			margin: 0px ;
+			padding: 0px ;
+			& > div{
+				//border: 1px solid $amber-500;
+				display: flex;
+				align-items: center;
+			}
+		}
+	};
+
+	& .koerper{
+		
+		&.spAusrichtung-l p{
+			text-align: start;
+		}
+		&.spAusrichtung-c p{
+			text-align: center;
+		}
+		&.spAusrichtung-r p{
+			text-align: end;
+		}
+
+		& .row{ 
+			//height: 3em;
+			margin: 0px;
+			padding: 0px;
+			&.vertikal-u {
+				justify-self: end ;
+			}
+			&.spAusrichtung-l p{
+				text-align: start;
+			}
+			&.spAusrichtung-c p{
+				text-align: center;
+			}
+			&.spAusrichtung-r p{
+				text-align: end;
+			}
+		}
+	};		
+
+};
+
+
+
+.tabelleWerkzeuge{
+	//background-color: $amber-100;
+	& .row{
+		flex-wrap:nowrap;
+		min-height: 2.5em;
+		margin: 0px ;
+		padding: 0px ;
+		& > div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid $amber-500;
+		}
+		& .spalte {
+			width: 180px;
+		}
+		& .spalte:nth-child(1) {
+			min-width: 220px;
+			justify-content:start;
+		}		
+	}
+
+	& .kopf{
+		font-weight: bodler;
+
+		& .row {
+			& .spalte {
+				background-image: linear-gradient($amber-100, $amber-300) ;
+			}
+		}
+	};
+
+	& .koerper{
+		& .row{ 
+			& .spalte {
+				background-image: linear-gradient($amber-050, $amber-200) ;
+			}
+		};		
+	};
+};
+
+// ENDE - Ausrichten von Spalten
+
+.tabelleEinrichteblatt{
+	//background-color: $amber-100;
+		
+		& .row {
+			flex-wrap:nowrap;
+			min-height: 2.5em;
+			margin: 0px ;
+			padding: 0px ;
+			& > div{
+				border: 1px solid $amber-500;
+				display: flex;
+				align-items: center;
+			}
+			& .spalte{
+				&:nth-child(1){
+					width: 50px;
+					justify-content: center;
+					
+				}
+				&:nth-child(2){
+					width: 450px;
+				}
+				&:nth-child(3){
+					width: 100px;
+					justify-content: center;
+				}
+				&:nth-child(4){
+					width: 250px;
+				}
+			}
+		}	
+
+	& .kopf{
+		font-weight: bolder;
+		& .spalte {
+			background-image: linear-gradient($amber-100, $amber-300) ;
+
+		};
+	};
+
+	& .koerper{
+		
+		& .spalte {
+			background-image: linear-gradient($amber-050, $amber-200) ;
+
+		};		
+
+	};
+};
+
+.tabelleApVorlage{
+	//background-color: $amber-100;
+	& .row {
+		flex-wrap:nowrap;
+		min-height: 2.5em;
+		& > div{
+			border: 1px solid $grau-500;
+			display: flex;
+			align-items: center;
+		}
+	}	
+
+	& .kopf{
+		font-weight: bolder;
+		& .spalte {
+			background-image: linear-gradient($grau-200, $grau-400) ;
+		};
+	};
+
+	& .koerper{
+		
+		&.spalte {
+			//padding-top: 5px;
+			//background-image: linear-gradient($grau-100, $grau-200) ;
+			background-color: red;
+			&.spalte-l{text-align: left !important;}
+			
+		};		
+
+	};
+};
+
+.gitterAufgaben{
+	//background-color: $amber-100;
+	&.schrift-klein {
+		font-size: smaller;
+	}
+	
+	& .gitterKopf{
+		font-weight: bolder;
+		//background-color: $amber-200;
+		background-image: linear-gradient($blaugrau-100, $blaugrau-300) ;
+		&.ausrichtung-l p{
+			text-align: start;
+		}
+		&.ausrichtung-c p{
+			text-align: center;
+			font-size: smaller;
+			color: red;
+		}
+		&.ausrichtung-r p{
+			text-align: end;
+		}
+		& .row {
+			height: 3em;
+			margin: 0px ;
+			padding: 0px ;
+			& > div{
+				border: 1px solid $blaugrau-500;
+				display: flex;
+				align-items: center;
+			}
+		}
+	};
+
+	& .gitterKoerper{
+		
+		&.spAusrichtung-l p{
+			text-align: start;
+		}
+		&.spAusrichtung-c p{
+			text-align: center;
+		}
+		&.spAusrichtung-r p{
+			text-align: end;
+		}
+
+		& .row{ 
+			//height: 3em;
+			margin: 0px;
+			padding: 0px;
+			background-image: linear-gradient($blaugrau-050, $blaugrau-100);
+
+			&.spAusrichtung-l p{
+				text-align: start;
+			}
+			&.spAusrichtung-c p{
+				text-align: center;
+			}
+			&.spAusrichtung-r p{
+				text-align: end;
+			}
+			&.an{
+				background-image: linear-gradient($amber-050, $amber-100);
+			}
+			&.aus{
+				background-image: linear-gradient($grau-100, $grau-200);
+			}
+
+			//border: thin solid $amber-500;
+			border-left: thin solid $blaugrau-500;
+			border-right: thin solid $blaugrau-500;
+			vertical-align: bottom;
+
+			& .col, .col-3, .col-4, .col-5, .col-6 {
+				padding-top: 10px;
+				border-left: thin solid $blaugrau-500;
+				border-right: thin solid $blaugrau-500;
+				//background-color: #66A9BD
+
+				//background-color: #66A9BD
+			}
+		};		
+
+	};
+};
+
+
+.z {
+	justify-content: center;
+}
+
+.l {
+	justify-content: left;
+	text-align: start;
+}
+.r {
+	justify-content: right;
+}
+
+.tabellenGitter{
+	&.schrift-klein {
+		font-size: smaller;
+	}
+
+	&.amber {	
+		border: 1px solid $amber-500;
+		& .row [class*="col"] {
+			border-left: 1px solid $amber-500;
+			border-right: 1px solid $amber-500;
+
+		}
+		& .kopf {
+			background-image: linear-gradient($amber-100, $amber-300) ;
+		}
+		& .koerper {
+			& [class*="col"]{
+				background-image: linear-gradient($amber-050, $amber-100);
+			}
+		}
+	}
+	&.blaugrau {
+		border: 1px solid $blaugrau-500;
+		& .row [class*="col"]{
+			border-left: 1px solid $blaugrau-500;
+			border-right: 1px solid $blaugrau-500;
+		}
+		& .kopf {
+			background-image: linear-gradient($blaugrau-100, $blaugrau-200) ;
+		}
+		& .koerper{
+			& [class*="col"]{
+				background-image: linear-gradient( $blaugrau-050, $blaugrau-100);
+			}
+		}
+	}
+	&.rot {
+		border: 1px solid $rot-500;
+		& .row [class*="col"]{
+			border-left: 1px solid $rot-500;
+			border-right: 1px solid $rot-500;
+		}
+		& .kopf {
+			background-image: linear-gradient($rot-100, $rot-300) ;
+		}
+		& .koerper {
+			& [class*="col"]{
+				background-image: linear-gradient($rot-050, $rot-100);
+			}
+		}
+	}
+
+	& .kopf{
+		font-weight: bolder;
+		
+		&.ausrichtung-l  [class*="col"]{
+			display: flex !important;
+			justify-content: left !important;
+		}
+		&.ausrichtung-c [class*="col"]{ 
+			display: flex !important;
+			justify-content: center !important;
+		}
+		&.ausrichtung-r [class*="col"]{
+			display: flex !important;
+			justify-content: end !important;		}
+
+		& .row {
+			height: 4em;
+			margin: 0px ;
+			padding: 0px ;
+			& > div{
+				//border: 1px solid $amber-500;
+				display: flex;
+				align-items: center;
+			}
+			& [class*="col"] {
+				&.l {
+					display: flex !important;
+					justify-content: left !important;
+				}
+				&.z {
+					display: flex !important;
+					justify-content: center !important;
+				}
+				&.r {
+					display: flex !important;
+					justify-content: right !important;
+				}
+			}
+		}
+
+		
+	};
+
+	& .koerper{
+		
+		&.spAusrichtung-l [class*="col"]{
+			text-align: start;
+		}
+		&.spAusrichtung-c [class*="col"]{
+			text-align: center;
+		}
+		&.spAusrichtung-r [class*="col"]{
+			text-align: end;
+		}
+
+		& .row{ 
+			//height: 2.5em;
+			margin: 0px;
+			padding: 0px;
+			& > div{
+				display: flex;
+				align-items: center;
+			}
+			& [class*="col"] {
+
+				&.l {
+					display: flex !important;
+					justify-content: left !important;
+
+				}
+				&.z {
+					display: flex !important;
+					justify-content: center !important;
+				}
+				&.r {
+					display: flex !important;
+					justify-content: right !important;
+				}
+			}
+		}
+	};		
+
+};

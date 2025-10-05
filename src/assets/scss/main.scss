@@ -1,0 +1,32 @@
+// 1. Built-in Module
+@use "sass:map";
+
+// 2. Eigene Farbdefinitionen & Styles
+@import "@/asset/scss/farben";
+@import "@/asset/scss/font-poppins";
+@import "@/asset/scss/knoepfe";
+@import "@/asset/scss/register";
+@import "@/asset/scss/_arbeitsSeite";
+@import "@/asset/scss/tabelle";
+@import "@/asset/scss/verwaltung";
+@import "@/asset/scss/admonitionStyle";
+@import "@/asset/scss/uhr_1";
+@import "@/asset/scss/zeichenbrett";
+@import "@/asset/scss/datenTabellen";
+@import "@/asset/scss/mediaPrint";
+
+// 3. Bootstrap-Variablen überschreiben (muss VOR Bootstrap kommen)
+$primary:       $blau-500;
+$secondary:     $grau-700;
+$success:       $gruen-500;
+$info:          $blau-300;
+$warning:       $amber-500;
+$danger:        $rot-500;
+$light:         $grau-100;
+$dark:          $grau-900;
+
+// 4. Bootstrap SCSS importieren (nutzt jetzt deine Variablen!)
+@import "bootstrap/scss/bootstrap";
+
+// 5. Bootstrap Icons (optional)
+@import "bootstrap-icons/font/bootstrap-icons";
