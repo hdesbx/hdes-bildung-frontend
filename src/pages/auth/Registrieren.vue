@@ -3,7 +3,7 @@
     <div class="col m-auto">
       <div class="card card-body">
         <figure class="figure bild-50">
-          <img :src="`${bilderServer}svg/HADES_HD_Logo_Denker_90.png`" class="img-fluid" />
+          <img :src="`${bilderServer}/svg/HADES_HD_Logo_Denker_90.png`" class="img-fluid" />
           <figcaption class="figure-caption"></figcaption>
         </figure>
 
