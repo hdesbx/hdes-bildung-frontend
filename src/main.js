@@ -9,11 +9,11 @@ import './assets/main.scss'
 const isLocal = window.location.hostname === 'localhost'
 
 // 🔧 Bilder-Server abhängig von Umgebung wählen
-//const bilderServer = isLocal
-//  ? import.meta.env.VITE_BILDERSERVER_LOCAL || "http://localhost:4000/images/"
-//  : import.meta.env.VITE_BILDERSERVER_PROD || "https://hdesbx.de/images/"
+const bilderServer = isLocal
+  ? import.meta.env.VITE_BILDERSERVER_LOCAL || "D:/GitHub/images/"
+  : import.meta.env.VITE_BILDERSERVER_PROD || "https://hdesbx.de/images/"
 
-const bilderServer = import.meta.env.VITE_BILDERSERVER_LOCAL || "http://localhost:4000/images/"
+
 
 
 // ✅ App erstellen
