@@ -5,7 +5,7 @@
         <h1>Digitale Bildung</h1>
 
         <figure class="figure bild-50">
-          <img :src="`${bilderServer}svg/HADES_HD_Logo_Denker_90.png`" class="img-fluid" />
+          <img :src="`${bilderServer}HADES_HD_Logo_Denker.png`" class="img-fluid" />
           <figcaption class="figure-caption"></figcaption>
         </figure>
 

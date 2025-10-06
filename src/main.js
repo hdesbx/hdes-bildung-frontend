@@ -10,7 +10,7 @@ const isLocal = window.location.hostname === 'localhost'
 
 // 🔧 Bilder-Server abhängig von Umgebung wählen
 const bilderServer = isLocal
-  ? import.meta.env.VITE_BILDERSERVER_LOCAL || "http://localhost:4000/images/"
+  ? import.meta.env.VITE_BILDERSERVER_LOCAL || "https://hdesbx.de/images/"
   : import.meta.env.VITE_BILDERSERVER_PROD || "https://hdesbx.de/images/"
 
 

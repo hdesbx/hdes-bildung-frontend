@@ -5,7 +5,7 @@
 
         <!-- Logo -->
         <figure class="figure bild-50">
-          <img :src="`${bilderServer}svg/HADES_HD_Logo_Denker_90.png`" class="img-fluid" />
+          <img :src="`${bilderServer}HADES_HD_Logo_Denker.png`" class="img-fluid" />
           <figcaption class="figure-caption"></figcaption>
         </figure>
 
@@ -75,7 +75,7 @@ const anmelden = async () => {
   }
 
   try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/anmelden`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/anmelden`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -86,7 +86,7 @@ const anmelden = async () => {
 
     if (res.ok) {
       alert('Anmeldung erfolgreich!')
-      router.push('/dashboard') // ggf. anpassen
+      router.push('/bindex') // ggf. anpassen
     } else {
       alert(`Fehler: ${data.message || 'Ungültige Anmeldedaten'}`)
     }
