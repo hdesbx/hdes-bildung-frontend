@@ -1,0 +1,2 @@
+VITE_BILDERSERVER_LOCAL=http://localhost:4000/images/
+VITE_BILDERSERVER_PROD=https://hdesbx.de/images/

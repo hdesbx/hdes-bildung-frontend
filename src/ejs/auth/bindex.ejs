@@ -1,0 +1,30 @@
+<%- include ("../partials/kozBenutzer") %>
+<br>
+
+<h1 style="text-align: center">Digitale Bildungs</h1>
+<br>
+<div style="text-align: center">
+    <figure class='figure bild-20'>
+        <img class='img-fluid' src='/svg/HADES_HD_Logo_Denker_90.png'>
+        <figcaption class='figure-caption'></figcaption>
+    </figure>
+</div>
+
+<div style="text-align: center">
+    Hallo <strong><%= persDaten.vorname  %></strong>, willkommen im Kurs <strong><%= persDaten.klasse  %></strong>. <br>
+    Viel Spaß und Erfolg beim Üben.
+</div>
+<br>
+<div style="text-align: center">
+    <figure class='figure bild-50'>
+        <img class='img-fluid' src='<%= bilderServer %>anmelden.gif'>
+        <figcaption class='figure-caption'></figcaption>
+    </figure>
+</div>
+
+<script>
+    $(document).ready(function() {            // Stellt sicher, dass das DOM vollständig geladen ist, bevor die Skripte ausgeführt werden.
+        $('.nav-link').removeClass("active"); // Alle Symbole des Menüs auf inaktiv setzen
+        $('#heim').addClass("active"); // Das aktive Symbol im Menü festlegen
+    });
+</script>

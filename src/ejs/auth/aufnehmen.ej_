@@ -1,0 +1,78 @@
+<div class="row mt-5">
+        <div class="col-md-3 m-auto">
+          <div class="card card-body">
+            <figure class="figure  bild-50">
+              <img class="img-fluid" src="/svg/HADES_HD_Logo_Denker_90.png">
+              <figcaption class="figure-caption"></figcaption>
+            </figure>
+            <h1 class="text-center mb-3">
+              <i class="fas fa-user-plus"></i> Registrieren
+            </h1>
+            <%- include ("../partials/messages") %>  
+
+
+            <form action="/aufnehmen" method="POST">
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="schule"></label>
+                <input
+                  type="text"
+                  id="schule"
+                  name="schule"
+                  class="form-control col-sm-8"
+                  placeholder="Aufnahmekennung 1 eingeben"
+                  value="<%= typeof schule != 'undefined' ? schule : '' %>"
+                />
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="klasse"></label>
+                <input
+                  type="text"
+                  id="klasse"
+                  name="klasse"
+                  class="form-control col-sm-8"
+                  placeholder="Aufnahmekennung 2 eingeben"
+                  value="<%= typeof klasse != 'undefined' ? klasse : '' %>"
+                />
+              </div>                              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="vorname"></label>
+                <input
+                  type="text"
+                  id="vorname"
+                  name="vorname"
+                  class="form-control col-sm-8"
+                  placeholder="Vornamen eingeben"
+                  value="<%= typeof vorname != 'undefined' ? vorname : '' %>"
+                />
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="nachname"></label>
+                <input
+                  type="text"
+                  id="nachname"
+                  name="nachname"
+                  class="form-control col-sm-8"
+                  placeholder="Nachnamen eingeben"
+                  value="<%= typeof nachname != 'undefined' ? nachname : '' %>"
+                />
+              </div>              
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="email"></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control col-sm-8"
+                  placeholder= "Email eingeben"
+                  value="<%= typeof email != 'undefined' ? email : '' %>"
+                />
+              </div>
+
+              <br><button type="submit" class="btn btn-primary btn-block">
+                Jetzt registrieren.
+              </button>
+            </form>
+            <p class="lead mt-4">Sie sind bereits registriert?  <a href="/anmelden">Zur Anmeldung</a></p>
+          </div>
+        </div>
+      </div>

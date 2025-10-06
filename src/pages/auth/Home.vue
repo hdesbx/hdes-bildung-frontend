@@ -9,7 +9,7 @@
           <figcaption class="figure-caption"></figcaption>
         </figure>
 
-        <router-link to="/aufnehmen" class="btn btn-primary btn-block mb-2">Registrieren</router-link>
+        <router-link to="/registrieren" class="btn btn-primary btn-block mb-2">Registrieren</router-link>
         <router-link to="/anmelden" class="btn btn-secondary btn-block mb-2">Anmelden</router-link>
         <router-link to="/kursAnmelden" class="btn btn-warning btn-block mb-2">Kurs starten</router-link>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="auth-layout d-flex flex-column min-vh-100">
+  <div class="auth-layout d-flex flex-column min-vh-100 bg-primary">
     <main class="flex-grow-1 d-flex align-items-center justify-content-center p-3">
       <router-view />
     </main>

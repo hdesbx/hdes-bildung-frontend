@@ -8,7 +8,7 @@ import AuthLayout from '@/layouts/AuthLayout.vue'
 
 // Seiten
 import Home from '@/pages/auth/Home.vue'
-import Login from '@/pages/auth/Login.vue'
+//import Registrieren from '@/pages/auth/Home.vue'
 
 
 
@@ -27,8 +27,8 @@ const routes = [
     component: AuthLayout,
     children: [
 
-      { path: 'anmelden', name: 'Login', component: Login },
-      //{ path: 'registrieren', name: 'Registrieren', component: () => import('@/pages/Registrieren.vue') },
+      //{ path: 'anmelden', name: 'Login', component: Login },
+      { path: '/registrieren', name: 'Registrieren', component: () => import('@/pages/auth/Registrieren.vue') },
     ]
   },
 
