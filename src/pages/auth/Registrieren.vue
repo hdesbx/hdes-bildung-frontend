@@ -3,7 +3,7 @@
     <div class="col m-auto">
       <div class="card card-body">
         <figure class="figure bild-50">
-          <img class="img-fluid" :src="`${bilderServer}svg/HADES_HD_Logo_Denker_90.png`" />
+          <img :src="`${bilderServer}svg/HADES_HD_Logo_Denker_90.png`" class="img-fluid" />
           <figcaption class="figure-caption"></figcaption>
         </figure>
 
@@ -48,8 +48,6 @@
 
 <script setup>
 import { ref } from 'vue'
-
-const bilderServer = import.meta.env.VITE_BILDER_SERVER
 
 const schule = ref('')
 const klasse = ref('')
