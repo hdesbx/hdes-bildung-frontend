@@ -27,8 +27,8 @@ const routes = [
     component: AuthLayout,
     children: [
 
-      //{ path: 'anmelden', name: 'Login', component: Login },
       { path: '/registrieren', name: 'Registrieren', component: () => import('@/pages/auth/Registrieren.vue') },
+      { path: '/anmelden',     name: 'Anmelden',     component: () => import('@/pages/auth/Anmelden.vue')     },
     ]
   },
 

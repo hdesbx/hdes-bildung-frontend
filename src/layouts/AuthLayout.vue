@@ -1,6 +1,6 @@
 <template>
   <div class="auth-layout d-flex flex-column min-vh-100 bg-primary">
-    <main class="flex-grow-1 d-flex align-items-center justify-content-center p-3">
+    <main class="flex-grow-1 d-flex align-items-center justify-content-center p-1">
       <router-view />
     </main>
     <footer class="text-center py-3 text-muted">

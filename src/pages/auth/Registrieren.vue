@@ -1,6 +1,6 @@
 <template>
   <div class="row mt-5">
-    <div class="col m-auto">
+    <div class="col-md-3 m-auto">
       <div class="card card-body">
         <figure class="figure bild-50">
           <img :src="`${bilderServer}/svg/HADES_HD_Logo_Denker_90.png`" class="img-fluid" />
@@ -47,9 +47,11 @@
 </template>
 
 <script setup>
-import { bilderServer } from '@/config/constants.js';
-import { ref } from 'vue'
+import { ref, computed, getCurrentInstance } from 'vue'
 
+// Zugriff auf globale Properties (wie in main.js definiert)
+const { appContext } = getCurrentInstance()
+const bilderServer = computed(() => appContext.config.globalProperties.$bilderServer)
 
 const schule = ref('')
 const klasse = ref('')
@@ -77,8 +79,6 @@ const registrieren = async () => {
 
     if (res.ok) {
       alert('Registrierung erfolgreich!')
-      // z.B. weiterleiten
-      // router.push('/anmelden')
     } else {
       alert(`Fehler: ${data.message}`)
     }
@@ -88,6 +88,7 @@ const registrieren = async () => {
   }
 }
 </script>
+
 
 <style scoped>
 /* Dein Styling hier */

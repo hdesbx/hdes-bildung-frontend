@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-md-4 m-auto">
+    <div class="col-md-3 m-auto">
       <div class="card card-body text-center">
         <h1>Digitale Bildung</h1>
 
@@ -22,15 +22,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Home',
-  computed: {
-    bilderServer() {
-      return this.$bilderServer
-    }
-  }
-}
+<script setup>
+import { computed, getCurrentInstance } from 'vue'
+
+// Zugriff auf globale Properties (wie in main.js gesetzt)
+const { appContext } = getCurrentInstance()
+const bilderServer = computed(() => appContext.config.globalProperties.$bilderServer)
 </script>
 
 <style scoped>
