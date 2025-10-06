@@ -47,7 +47,9 @@
 </template>
 
 <script setup>
+import { bilderServer } from '@/config/constants.js';
 import { ref } from 'vue'
+
 
 const schule = ref('')
 const klasse = ref('')
